@@ -8,8 +8,6 @@
 
             int increased = 0;
 
-            Console.WriteLine($"{input.Length} total records");
-
             for (int i = 0; i < input.Length - 3; i++)
             {
                 var a = int.Parse(input[i]) + int.Parse(input[i + 1]) + int.Parse(input[i + 2]);

@@ -8,9 +8,6 @@
 
             int increased = 0;
 
-
-            Console.WriteLine($"{input.Length} total records");
-
             for (int i = 1; i < input.Length - 2; i++)
             {
                 if (int.Parse(input[i]) > int.Parse(input[i - 1]))

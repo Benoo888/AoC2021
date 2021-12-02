@@ -1,4 +1,6 @@
-﻿Console.WriteLine("My Advent of Code 2021 solutions");
+﻿using AoC2021;
+
+PrettyConsolewriter.WriteHeader();
 Console.WriteLine();
 AoC2021.Solutions.Day01.Part01.Execute();
 AoC2021.Solutions.Day01.Part02.Execute();

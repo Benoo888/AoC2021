@@ -35,8 +35,6 @@ namespace AoC2021.Solutions.Day02
                 }
             }
 
-            Console.WriteLine($"{ depth } depth");
-
             PrettyConsolewriter.WriteLine($"Day 2 part 2:{ depth * horizontalPosition } depth times horizontalposition");
         }
     }

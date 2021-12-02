@@ -17,10 +17,6 @@ namespace AoC2021.Solutions.Day02
             up = input.Where(s => s.Contains("up")).Sum(i => int.Parse(regex.Match(i).Value));
             down = input.Where(s => s.Contains("down")).Sum(i => int.Parse(regex.Match(i).Value));
 
-            Console.WriteLine($"{forward} forwards");
-            Console.WriteLine($"{up} up");
-            Console.WriteLine($"{down} down");
-
             PrettyConsolewriter.WriteLine($"Day 2 part 1: {Math.Abs(down - up) * forward} depth times forward");
         }
     }
