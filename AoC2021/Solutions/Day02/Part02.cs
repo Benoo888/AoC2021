@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace AoC2021.Solutions.Day02
 {
@@ -10,31 +11,27 @@ namespace AoC2021.Solutions.Day02
 
             var regex = new Regex(@"\d+");
 
-            var horizontalPosition = input.Where(s => s.Contains("forward")).Sum(i => int.Parse(regex.Match(i).Value));
-
-            Console.WriteLine($"{ horizontalPosition } horizontal position");
+            // phased out the RegEx
+            //var horizontalPosition = input.Where(s => s.Contains("forward")).Sum(i => int.Parse(regex.Match(i).Value));
+            //Console.WriteLine($"{ horizontalPosition } horizontal position");
 
             int aim = 0;
             int depth = 0;
 
-            for (int i = 0; i < input.Length; i++)
+            IEnumerable<(string direction, int value)> notebook = input.Select(s => s.Split(' ', 2)).Select(s => (s[0], int.Parse(s[1])));
+
+            var horizontalPosition = notebook.Where(line => line.direction == "forward").Sum(line => line.value);
+
+            foreach(var line in notebook)
             {
-                var line = input[i];
-                                
-                if (line.Contains("up"))
+                switch (line.direction)
                 {
-                    aim -= int.Parse(regex.Match(line).Value);
-                }
-
-                if (line.Contains("down"))
-                {
-                    aim += int.Parse(regex.Match(line).Value);
-                }
-
-                if (line.Contains("forward"))
-                {
-                    var forward = int.Parse(regex.Match(line).Value);
-                    depth += (aim * forward);
+                    case "up":
+                        aim -= line.value; break;
+                    case "down":
+                        aim += line.value; break;
+                    case "forward":
+                        depth += (aim * line.value); break;
                 }
             }
 
