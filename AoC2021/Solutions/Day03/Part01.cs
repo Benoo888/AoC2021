@@ -10,10 +10,12 @@ namespace AoC2021.Solutions.Day03
 
             var intArray = input.Select(input => input.Select(x => (int)char.GetNumericValue(x)).ToArray());
 
-            var gamma = new int[12];
-            var epsilon = new int[12];
+            var lengthPerLine = input.First().Length;
 
-            for (int i = 0; i < 12; i++)
+            var gamma = new int[lengthPerLine];
+            var epsilon = new int[lengthPerLine];
+
+            for (int i = 0; i < lengthPerLine; i++)
             {
                 var digit = intArray.Select(item => item[i]);
                 var digitzero = digit.Where(d => d == 0).Count();
