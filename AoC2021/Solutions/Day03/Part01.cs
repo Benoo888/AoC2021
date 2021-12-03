@@ -1,6 +1,4 @@
-﻿using System.Text.RegularExpressions;
-
-namespace AoC2021.Solutions.Day03
+﻿namespace AoC2021.Solutions.Day03
 {
     internal class Part01
     {
